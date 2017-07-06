@@ -19,20 +19,20 @@ times<-newdata$Time
 x<-paste(dates,times)
 x<-as.POSIXct(x,format="%d/%m/%Y %H:%M:%S")
 
-
-
 ## Creating a PNG file
 png(filename = "plot4.png",width = 480, height = 480)
+## Making multiple plots in file
 par(mfcol=c(2,2))
+## Plotting first graph
 plot(x,newdata$Global_active_power,"l",xlab = "",ylab = "Global Active Power(kilowatts)")
-
+## Plotting second graph
 plot(x,newdata$Sub_metering_1,"l",xlab = "",ylab = "Energy sub metering")
 lines(x,newdata$Sub_metering_2,col="red")
 lines(x,newdata$Sub_metering_3,col="blue")
 legend("topright",lty=1,col=c("black","red","blue"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-
+## Plotting third graph
 plot(x,newdata$Voltage,"l",xlab = "datetime",ylab = "Voltage")
-
+## Plotting fourth graph
 plot(x,newdata$Global_reactive_power,"l",xlab = "datetime",ylab = "Global_reactive_power")
 
 ## Closing graphics devise.
